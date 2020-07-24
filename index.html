@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Palindrome</title>
+</head>
+<body>
+    <div class="cover">
+        <div class="container header">
+            <div class="row row-margin">
+                <div class="col-sm-12">
+                    <h1 class="text-center">Palindrome checker</h1>
+                </div>
+                <div class="col-sm-12">
+                    <p class="text-center text-uppercase">Sir, I demand, I am a maid named Iris.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-margin">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <textarea class="col-md-12" id="input">Sit on a potato pan, Otis.</textarea>
+                </div>
+            </div>
+            <div class="row row-margin">
+                <div class="col-sm-3"></div>
+                <button class="btn btn-default btn-lg btn-block col-sm-6 col-sm-offset-4" id="check" type="submit">Check your palindrome</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-margin">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 text-center">
+                    <div class="alert alert-info" id="notification">A palindrome is yet to be entered</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function palindrome(str) {
+        "use strict"
+        let splitted = str.toLowerCase().split('').join("").replace(/\W|_/g, '')
+        return splitted == splitted.split('').reverse().join('');
+    }
+
+    check.addEventListener("click", () => {
+        "use strict"
+
+        var value = document.getElementById("input").value
+        var notification = document.getElementById("notification")
+
+        if(palindrome(value)) {
+            notification.innerHTML = "You've got yourself a palindrome"
+            notification.className = "alert alert-success"
+        } else {
+            notification.innerHTML = "That ain't no palindrome"
+            notification.className = "alert alert-danger"
+        }
+
+    })
+
+</script>
+
+</html>
